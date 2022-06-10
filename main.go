@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/tesrohit-developer/rest-server-scrathpad/plugin"
 	"log"
@@ -29,9 +30,9 @@ func getSidelinePlugin() interface{} {
 }
 
 func echoString(w http.ResponseWriter, r *http.Request) {
-	//s1 := "em1"
-	//s1bytes, _ := json.Marshal(s1)
-	//pluginInterface.(plugin.CheckMessageSidelineImpl).CheckMessageSideline(s1bytes)
+	s1 := "em1"
+	s1bytes, _ := json.Marshal(s1)
+	pluginInterface.(plugin.CheckMessageSidelineImpl).CheckMessageSideline(s1bytes)
 	fmt.Fprintf(w, "hello")
 }
 
