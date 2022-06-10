@@ -1,3 +1,3 @@
 all:
 	go build -o sideline-em
-	mv sideline-em ../../built
+	mv sideline-em ../../built/
