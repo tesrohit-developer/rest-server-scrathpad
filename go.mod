@@ -3,7 +3,7 @@ module github.com/tesrohit-developer/rest-server-scrathpad
 go 1.12
 
 require (
-	github.com/hashicorp/go-plugin v1.4.4
+	github.com/hashicorp/go-plugin v1.4.3
 	github.fkinternal.com/Flipkart/entity-manager/modules/entity-manager-client-model/EntityManagerClientModel v0.0.0-20220519064722-e71b578ce0ad
 	github.fkinternal.com/Flipkart/entity-manager/modules/entity-manager-model/EntityManagerModel v0.0.0-20220519064722-e71b578ce0ad
 	github.fkinternal.com/Flipkart/entity-manager/modules/entity-manager-schema-registry-client/Serialization v0.0.0-20220519113404-3154a5256f77 // indirect
