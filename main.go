@@ -47,5 +47,5 @@ func main() {
 	r := mux.NewRouter()
 	//pluginInterface = getSidelinePlugin()
 	r.HandleFunc("/", echoString)
-	log.Fatal(http.ListenAndServe(":8081", nil))
+	log.Fatal(r.ListenAndServe(":8081", r))
 }
