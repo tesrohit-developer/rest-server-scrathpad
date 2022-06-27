@@ -43,6 +43,7 @@ func echoString(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	fmt.Println("Starting server")
 	r := mux.NewRouter()
 	//pluginInterface = getSidelinePlugin()
 	r.HandleFunc("/", echoString)
