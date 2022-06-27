@@ -30,21 +30,21 @@ func getSidelinePlugin() interface{} {
 }
 
 func echoString(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
+	/*vars := mux.Vars(r)
 	id, ok := vars["id"]
 	if !ok {
 		fmt.Println("id is missing in parameters")
 	}
-	fmt.Println(`id := `, id)
+	fmt.Println(`id := `, id)*/
 	/*s1 := "em1"
 	s1bytes, _ := json.Marshal(s1)
 	pluginInterface.(plugin.CheckMessageSidelineImpl).CheckMessageSideline(s1bytes)*/
-	fmt.Fprintf(w, "hello"+id)
+	fmt.Fprintf(w, "hello")
 }
 
 func main() {
 	r := mux.NewRouter()
-	pluginInterface = getSidelinePlugin()
-	r.HandleFunc("/{id}", echoString)
+	//pluginInterface = getSidelinePlugin()
+	r.HandleFunc("/", echoString)
 	log.Fatal(http.ListenAndServe(":8081", nil))
 }
