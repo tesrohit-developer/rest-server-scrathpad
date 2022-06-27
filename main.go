@@ -1,8 +1,8 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
+	"github.com/gorilla/mux"
 	"github.com/tesrohit-developer/rest-server-scrathpad/plugin"
 	"log"
 	"net/http"
@@ -30,14 +30,21 @@ func getSidelinePlugin() interface{} {
 }
 
 func echoString(w http.ResponseWriter, r *http.Request) {
-	s1 := "em1"
+	vars := mux.Vars(r)
+	id, ok := vars["id"]
+	if !ok {
+		fmt.Println("id is missing in parameters")
+	}
+	fmt.Println(`id := `, id)
+	/*s1 := "em1"
 	s1bytes, _ := json.Marshal(s1)
-	pluginInterface.(plugin.CheckMessageSidelineImpl).CheckMessageSideline(s1bytes)
-	fmt.Fprintf(w, "hello")
+	pluginInterface.(plugin.CheckMessageSidelineImpl).CheckMessageSideline(s1bytes)*/
+	fmt.Fprintf(w, "hello"+id)
 }
 
 func main() {
+	r := mux.NewRouter()
 	pluginInterface = getSidelinePlugin()
-	http.HandleFunc("/", echoString)
+	r.HandleFunc("/{id}", echoString)
 	log.Fatal(http.ListenAndServe(":8081", nil))
 }
